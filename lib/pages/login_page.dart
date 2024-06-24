@@ -45,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
 
             //textfield
             CustomInputField(
+              title: 'Email Adress',
               hintText: "E.g. dizzpy@admin.com",
               obscureText: false,
               controller: emailController,
@@ -53,6 +54,7 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: 15),
 
             CustomInputField(
+              title: 'Password',
               hintText: "Enter your password",
               obscureText: true,
               controller: passwordController,
@@ -74,20 +76,23 @@ class _LoginPageState extends State<LoginPage> {
             // login button
             SizedBox(height: 30),
 
-            Container(
-              width: double.infinity,
-              height: 50,
-              decoration: BoxDecoration(
-                color: kBlack,
-                borderRadius: BorderRadius.circular(6),
-              ),
-              child: Center(
-                child: Text(
-                  'Login',
-                  style: GoogleFonts.outfit(
-                    textStyle: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: kBlack,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Center(
+                  child: Text(
+                    'Login',
+                    style: GoogleFonts.outfit(
+                      textStyle: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -109,19 +114,22 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(width: 5),
-                Text(
-                  'Create an account',
-                  style: GoogleFonts.outfit(
-                    textStyle: TextStyle(
-                      fontSize: 14,
-                      color: kBlack,
+                GestureDetector(
+                  onTap: () {},
+                  child: Text(
+                    'Create an account',
+                    style: GoogleFonts.outfit(
+                      textStyle: TextStyle(
+                        fontSize: 14,
+                        color: kBlack,
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
 
-            SizedBox(height: 70),
+            SizedBox(height: 60),
           ],
         ),
       ),
