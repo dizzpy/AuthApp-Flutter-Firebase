@@ -4,12 +4,20 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomInputField extends StatelessWidget {
   const CustomInputField({
-    super.key,
+    required this.controller,
+    required this.hintText,
+    required this.obscureText,
   });
+
+  final TextEditingController controller;
+  final String hintText;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
+      obscureText: obscureText,
       style: GoogleFonts.outfit(
         textStyle: TextStyle(
           fontSize: 14,
@@ -17,7 +25,7 @@ class CustomInputField extends StatelessWidget {
         ),
       ),
       decoration: InputDecoration(
-        hintText: 'Enter your text',
+        hintText: hintText,
         hintStyle: GoogleFonts.outfit(
           textStyle: TextStyle(
             fontSize: 14,

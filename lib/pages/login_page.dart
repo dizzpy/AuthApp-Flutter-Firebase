@@ -4,8 +4,16 @@ import 'package:firebase_auth/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +44,19 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 30),
 
             //textfield
-            CustomInputField(),
+            CustomInputField(
+              hintText: "E.g. dizzpy@admin.com",
+              obscureText: false,
+              controller: emailController,
+            ),
 
             SizedBox(height: 15),
 
-            CustomInputField(),
+            CustomInputField(
+              hintText: "Enter your password",
+              obscureText: false,
+              controller: emailController,
+            ),
 
             SizedBox(height: 15),
 
