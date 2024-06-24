@@ -1,4 +1,6 @@
+// import 'package:firebase_auth/pages/login_page.dart';
 import 'package:firebase_auth/pages/login_page.dart';
+import 'package:firebase_auth/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
