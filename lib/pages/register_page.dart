@@ -19,6 +19,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kWhite,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(40.0),
@@ -28,13 +29,13 @@ class _RegisterPageState extends State<RegisterPage> {
               Spacer(),
               // Title
               CustomText(
-                title: 'Login',
+                title: 'Register',
                 fontSize: 40,
               ),
 
               // subtitle
               CustomText(
-                title: 'Hi, Welcome back 👋',
+                title: 'Let’s create your account 🤘',
                 fontSize: 17,
               ),
 
@@ -66,17 +67,6 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               SizedBox(height: 15),
 
-              // forgot password
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  CustomText(
-                    title: 'Forgot password ?',
-                    fontSize: 14,
-                  ),
-                ],
-              ),
-
               // login button
               SizedBox(height: 30),
 
@@ -91,7 +81,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   child: Center(
                     child: Text(
-                      'Login',
+                      'Register',
                       style: GoogleFonts.outfit(
                         textStyle: TextStyle(
                           fontSize: 16,
@@ -109,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Not registered yet?',
+                    'Already have an account ?',
                     style: GoogleFonts.outfit(
                       textStyle: TextStyle(
                         fontSize: 14,
@@ -121,7 +111,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   GestureDetector(
                     onTap: () {},
                     child: Text(
-                      'Create an account',
+                      'Login',
                       style: GoogleFonts.outfit(
                         textStyle: TextStyle(
                           fontSize: 14,
