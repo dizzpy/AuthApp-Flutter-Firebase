@@ -54,8 +54,8 @@ class _LoginPageState extends State<LoginPage> {
 
             CustomInputField(
               hintText: "Enter your password",
-              obscureText: false,
-              controller: emailController,
+              obscureText: true,
+              controller: passwordController,
             ),
 
             SizedBox(height: 15),
