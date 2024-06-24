@@ -71,7 +71,9 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 30),
 
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/home');
+                },
                 child: Container(
                   width: double.infinity,
                   height: 50,
@@ -109,7 +111,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   SizedBox(width: 5),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
                     child: Text(
                       'Login',
                       style: GoogleFonts.outfit(
