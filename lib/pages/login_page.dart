@@ -1,3 +1,4 @@
+import 'package:firebase_auth/components/body_text.dart';
 import 'package:firebase_auth/components/custom_textfield.dart';
 import 'package:firebase_auth/const/colors.dart';
 import 'package:flutter/material.dart';
@@ -16,14 +17,9 @@ class LoginPage extends StatelessWidget {
           children: [
             Spacer(),
             // Title
-            Text(
-              "Login",
-              style: GoogleFonts.outfit(
-                textStyle: TextStyle(
-                  fontSize: 42,
-                  color: kTextLightGray,
-                ),
-              ),
+            MyBodyText(
+              title: 'Login',
+              fontSize: 40,
             ),
 
             // subtitle
