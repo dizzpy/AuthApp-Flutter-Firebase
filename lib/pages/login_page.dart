@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
           children: [
             Spacer(),
             // Title
-            MyBodyText(
+            BodyText(
               title: 'Login',
               fontSize: 40,
             ),
