@@ -2,8 +2,8 @@ import 'package:firebase_auth/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BodyText extends StatelessWidget {
-  const BodyText({
+class CustomText extends StatelessWidget {
+  const CustomText({
     required this.title,
     required this.fontSize,
   });

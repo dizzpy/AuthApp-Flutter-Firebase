@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
           children: [
             Spacer(),
             // Title
-            BodyText(
+            CustomText(
               title: 'Login',
               fontSize: 40,
             ),
@@ -48,14 +48,9 @@ class LoginPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  'Forgot Password?',
-                  style: GoogleFonts.outfit(
-                    textStyle: TextStyle(
-                      fontSize: 14,
-                      color: kTextLightGray,
-                    ),
-                  ),
+                CustomText(
+                  title: 'Forgot password ?',
+                  fontSize: 14,
                 ),
               ],
             ),
