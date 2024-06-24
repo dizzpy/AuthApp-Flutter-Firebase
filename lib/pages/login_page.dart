@@ -31,14 +31,9 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
             // subtitle
-            Text(
-              'Hi, Welcome back 👋',
-              style: GoogleFonts.outfit(
-                textStyle: TextStyle(
-                  fontSize: 17,
-                  color: kTextLightGray,
-                ),
-              ),
+            CustomText(
+              title: 'Hi, Welcome back 👋',
+              fontSize: 17,
             ),
 
             SizedBox(height: 30),
