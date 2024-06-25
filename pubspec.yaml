@@ -1,4 +1,4 @@
-name: firebase_auth
+name: firebaseauth
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   google_fonts: ^6.2.1
   rename_app: ^1.5.0
+  firebase_auth: ^5.1.1  # Added firebase_auth package
 
 dev_dependencies:
   flutter_test:

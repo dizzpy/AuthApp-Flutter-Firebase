@@ -1,5 +1,5 @@
-import 'package:firebase_auth/components/custom_text.dart';
-import 'package:firebase_auth/const/colors.dart';
+import 'package:firebaseauth/components/custom_text.dart';
+import 'package:firebaseauth/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
