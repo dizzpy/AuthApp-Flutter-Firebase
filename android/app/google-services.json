@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "165499289893",
+    "project_id": "authprojectgithub",
+    "storage_bucket": "authprojectgithub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165499289893:android:68edf405b6c11c98a4dacc",
+        "android_client_info": {
+          "package_name": "com.dizzpy.firebaseauthapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb-gsqmNNdujEQ30dSifqRTaIbJIDehko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
