@@ -1,15 +1,23 @@
-import 'package:firebase_auth/components/custom_text.dart';
-import 'package:firebase_auth/const/colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebaseauth/components/custom_text.dart';
+import 'package:firebaseauth/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  get passwordController => null;
-
+class HomePage extends StatefulWidget {
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  void logoutUser(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushNamed(context, '/login');
+  }
+
   Widget build(BuildContext context) {
+    User? currentUser = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
       backgroundColor: kWhite,
       body: Padding(
@@ -26,7 +34,7 @@ class HomePage extends StatelessWidget {
 
             // subtitle
             CustomText(
-              title: 'admin@dezzpy.dev',
+              title: currentUser?.email ?? 'No user logged in',
               fontSize: 17,
             ),
 
@@ -34,7 +42,7 @@ class HomePage extends StatelessWidget {
 
             GestureDetector(
               onTap: () {
-                Navigator.pop(context, '/login');
+                logoutUser(context);
               },
               child: Container(
                 width: double.infinity,

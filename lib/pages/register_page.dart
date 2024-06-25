@@ -1,6 +1,7 @@
-import 'package:firebase_auth/components/custom_text.dart';
-import 'package:firebase_auth/components/custom_textfield.dart';
-import 'package:firebase_auth/const/colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebaseauth/components/custom_text.dart';
+import 'package:firebaseauth/components/custom_textfield.dart';
+import 'package:firebaseauth/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,6 +16,47 @@ class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  Future<void> registerUser(BuildContext context) async {
+    try {
+      if (passwordController.text == confirmPasswordController.text) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+        );
+        Navigator.pushNamed(context, '/home');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Registration Successful!'),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Passwords do not match'),
+          ),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error: ' + e.toString()),
+        ),
+      );
+    } finally {
+      emailController.clear();
+      passwordController.clear();
+      confirmPasswordController.clear();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +75,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 fontSize: 40,
               ),
 
-              // subtitle
+              // Subtitle
               CustomText(
                 title: 'Let’s create your account 🤘',
                 fontSize: 17,
@@ -41,9 +83,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
               SizedBox(height: 30),
 
-              //textfield
+              // Email TextField
               CustomInputField(
-                title: 'Email Adress',
+                title: 'Email Address',
                 hintText: "E.g. dizzpy@admin.com",
                 obscureText: false,
                 controller: emailController,
@@ -51,6 +93,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               SizedBox(height: 15),
 
+              // Password TextField
               CustomInputField(
                 title: 'Password',
                 hintText: "Enter your password",
@@ -59,20 +102,21 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
 
               SizedBox(height: 15),
+
+              // Confirm Password TextField
               CustomInputField(
-                title: 'Cofirm Password',
+                title: 'Confirm Password',
                 hintText: "Re-enter your password",
                 obscureText: true,
                 controller: confirmPasswordController,
               ),
+
               SizedBox(height: 15),
 
-              // login button
-              SizedBox(height: 30),
-
+              // Register Button
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/home');
+                  registerUser(context);
                 },
                 child: Container(
                   width: double.infinity,
@@ -95,13 +139,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
 
-              // to register
               SizedBox(height: 30),
+
+              // Navigate to Login
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Already have an account ?',
+                    'Already have an account?',
                     style: GoogleFonts.outfit(
                       textStyle: TextStyle(
                         fontSize: 14,
@@ -127,7 +172,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
 
-              SizedBox(height: 60),
+              SizedBox(height: 25),
             ],
           ),
         ),
