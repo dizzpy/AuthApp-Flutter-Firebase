@@ -23,6 +23,7 @@ class MainApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/home': (context) => HomePage(),
+        '/authPage': (context) => AuthPage(),
       },
     );
   }

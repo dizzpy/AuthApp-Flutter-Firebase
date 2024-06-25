@@ -1,13 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebaseauth/components/custom_text.dart';
 import 'package:firebaseauth/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
-  get passwordController => null;
+  @override
+  State<HomePage> createState() => _HomePageState();
 
+  // Static method to handle logout
+  static void logoutUser(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushNamed(context, '/login');
+  }
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +44,8 @@ class HomePage extends StatelessWidget {
 
             GestureDetector(
               onTap: () {
-                Navigator.pop(context, '/login');
+                // Call static logout method from HomePage
+                HomePage.logoutUser(context);
               },
               child: Container(
                 width: double.infinity,
