@@ -5,21 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
   @override
   State<HomePage> createState() => _HomePageState();
-
-  // Static method to handle logout
-  static void logoutUser(BuildContext context) async {
-    await FirebaseAuth.instance.signOut();
-    Navigator.pushNamed(context, '/login');
-  }
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
+  void logoutUser(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushNamed(context, '/login');
+  }
+
   Widget build(BuildContext context) {
+    User? currentUser = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
       backgroundColor: kWhite,
       body: Padding(
@@ -36,7 +34,7 @@ class _HomePageState extends State<HomePage> {
 
             // subtitle
             CustomText(
-              title: 'admin@dezzpy.dev',
+              title: currentUser?.email ?? 'No user logged in',
               fontSize: 17,
             ),
 
@@ -44,8 +42,7 @@ class _HomePageState extends State<HomePage> {
 
             GestureDetector(
               onTap: () {
-                // Call static logout method from HomePage
-                HomePage.logoutUser(context);
+                logoutUser(context);
               },
               child: Container(
                 width: double.infinity,
