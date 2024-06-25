@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebaseauth/components/custom_text.dart';
 import 'package:firebaseauth/components/custom_textfield.dart';
 import 'package:firebaseauth/const/colors.dart';
@@ -14,6 +15,31 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  void userSignedIn(BuildContext context) async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      Navigator.pushNamed(context, '/home');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Successfully signed in'),
+        ),
+      );
+    } catch (e) {
+      print('Error: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to sign in. Please check your credentials.'),
+        ),
+      );
+    } finally {
+      emailController.clear();
+      passwordController.clear();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
 
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/home');
+                userSignedIn(context);
               },
               child: Container(
                 width: double.infinity,
@@ -114,7 +140,10 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(width: 5),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/register');
+                    Navigator.pushNamed(
+                      context,
+                      '/register',
+                    );
                   },
                   child: Text(
                     'Create an account',
