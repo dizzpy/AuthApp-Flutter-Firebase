@@ -33,7 +33,9 @@ class HomePage extends StatelessWidget {
             Spacer(),
 
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context, '/login');
+              },
               child: Container(
                 width: double.infinity,
                 height: 50,

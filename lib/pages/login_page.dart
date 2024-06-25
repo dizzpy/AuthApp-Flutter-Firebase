@@ -73,7 +73,9 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: 30),
 
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/home');
+              },
               child: Container(
                 width: double.infinity,
                 height: 50,
@@ -111,7 +113,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(width: 5),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
                   child: Text(
                     'Create an account',
                     style: GoogleFonts.outfit(
