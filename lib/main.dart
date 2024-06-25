@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebaseauth/pages/auth_page.dart';
 import 'package:firebaseauth/pages/home_register.dart';
 import 'package:firebaseauth/pages/login_page.dart';
 import 'package:firebaseauth/pages/register_page.dart';
@@ -17,7 +18,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RegisterPage(),
+      home: AuthPage(),
       routes: {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
